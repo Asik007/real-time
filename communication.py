@@ -16,7 +16,7 @@ class Communication:
         for port in sorted(self.ports):
             # obtener la lista de puetos: https://stackoverflow.com/a/52809180
             print(("{}".format(port)))
-        self.portName = input("write serial port name (ex: /dev/ttyUSB0): ")
+        # self.portName = input("write serial port name (ex: /dev/ttyUSB0): ")
         try:
             self.ser = serial.Serial(self.portName, self.baudrate)
         except serial.serialutil.SerialException:
@@ -37,7 +37,7 @@ class Communication:
             # print(decoded_bytes)
             value_chain = decoded_bytes.split(",")
         else:
-            value_chain = [0] + random.sample(range(0, 300), 1) + \
+            value_chain = [0] + random.sample(range(0, 100), 1) + \
                 [random.getrandbits(1)] + random.sample(range(0, 20), 8)
         return value_chain
 
